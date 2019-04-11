@@ -14,8 +14,9 @@ class MovieController {
     
     var upcomingCategory: MovieCategory?
     var nowPlayingCategory: MovieCategory?
-    
     var movieDetails: MovieDetails?
+    
+    var searchedMovies: [Movie]? = []
     
     let baseURL = URL(string: "https://api.themoviedb.org/3/")!
     let apiKey = "7f92a096158dcb0a254d7038aeabed0b"
@@ -107,6 +108,45 @@ class MovieController {
                 let movieDetails = try decoder.decode(MovieDetails.self, from: data)
                 self.movieDetails = movieDetails
                 completion(true)
+            }
+            catch let error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+        }
+        dataTask.resume()
+    }
+    
+    func searchMovieWith(query: String, completion: @escaping(_ success: Bool) -> Void) {
+        
+        let baseURL = "https://api.themoviedb.org/3/search/movie?api_key=7f92a096158dcb0a254d7038aeabed0b&language=en-US&query=\(query)&page=1"
+        let queryURL = baseURL.replacingOccurrences(of: " ", with: "%20")
+        
+        let url = URL(string: queryURL)!
+        
+        print(url)
+        
+        let request = URLRequest(url: url)
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+            
+            guard let data = data else { completion(false); return }
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            do {
+                let response = try decoder.decode(GetMoviesResponse.self, from: data)
+                if let movies = response.results {
+                    self.searchedMovies = movies
+                    completion(true)
+                }
             }
             catch let error {
                 print(error.localizedDescription)
