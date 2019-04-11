@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7C8C67D8225FD2F9000116B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67D7225FD2F9000116B3 /* AppDelegate.swift */; };
-		7C8C67DA225FD2F9000116B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67D9225FD2F9000116B3 /* ViewController.swift */; };
 		7C8C67DD225FD2F9000116B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8C67DB225FD2F9000116B3 /* Main.storyboard */; };
 		7C8C67DF225FD2FA000116B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C8C67DE225FD2FA000116B3 /* Assets.xcassets */; };
 		7C8C67E2225FD2FA000116B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8C67E0225FD2FA000116B3 /* LaunchScreen.storyboard */; };
@@ -17,7 +16,6 @@
 /* Begin PBXFileReference section */
 		7C8C67D4225FD2F9000116B3 /* movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8C67D7225FD2F9000116B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7C8C67D9225FD2F9000116B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7C8C67DC225FD2F9000116B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C8C67DE225FD2FA000116B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C8C67E1225FD2FA000116B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,14 +52,21 @@
 		7C8C67D6225FD2F9000116B3 /* movies */ = {
 			isa = PBXGroup;
 			children = (
-				7C8C67D7225FD2F9000116B3 /* AppDelegate.swift */,
-				7C8C67D9225FD2F9000116B3 /* ViewController.swift */,
 				7C8C67DB225FD2F9000116B3 /* Main.storyboard */,
+				7C8C67E9225FD50A000116B3 /* Resources */,
+			);
+			path = movies;
+			sourceTree = "<group>";
+		};
+		7C8C67E9225FD50A000116B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7C8C67D7225FD2F9000116B3 /* AppDelegate.swift */,
 				7C8C67DE225FD2FA000116B3 /* Assets.xcassets */,
 				7C8C67E0225FD2FA000116B3 /* LaunchScreen.storyboard */,
 				7C8C67E3225FD2FA000116B3 /* Info.plist */,
 			);
-			path = movies;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +140,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C8C67DA225FD2F9000116B3 /* ViewController.swift in Sources */,
 				7C8C67D8225FD2F9000116B3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +288,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M67BJVKLC2;
-				INFOPLIST_FILE = movies/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/movies/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +306,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M67BJVKLC2;
-				INFOPLIST_FILE = movies/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/movies/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
