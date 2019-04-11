@@ -13,13 +13,13 @@ class TestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        MovieController.shared.fetchMoviesFor(type: MovieType.nowPlaying) { (success) in
+        MovieController.shared.fetchMovieDetails(movieId: 299537) { (success) in
             if success {
-                guard let nowPlayingMovies = MovieController.shared.nowPlayingCategory else { return }
-                for i in nowPlayingMovies.movies! {
-                    print(i.title)
-                }
+                guard let movieDetails = MovieController.shared.movieDetails else { return }
+                print(movieDetails)
             }
         }
     }
 }
+
+// 299537

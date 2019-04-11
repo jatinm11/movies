@@ -15,6 +15,8 @@ class MovieController {
     var upcomingCategory: MovieCategory?
     var nowPlayingCategory: MovieCategory?
     
+    var movieDetails: MovieDetails?
+    
     let baseURL = URL(string: "https://api.themoviedb.org/3/")!
     let apiKey = "7f92a096158dcb0a254d7038aeabed0b"
     
@@ -77,4 +79,42 @@ class MovieController {
         }
         dataTask.resume()
     }
+    
+    
+    func fetchMovieDetails(movieId: Int, completion: @escaping(_ success: Bool) -> Void) {
+        
+        let base = "\(baseURL)movie/\(movieId)?api_key=\(apiKey)&language=en-US&append_to_response=credits,release_dates"
+        
+        guard let url = URL(string: base) else { completion(false); return }
+        
+        print(url)
+        
+        let request = URLRequest(url: url)
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+            
+            guard let data = data else { completion(false); return }
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            do {
+                let movieDetails = try decoder.decode(MovieDetails.self, from: data)
+                self.movieDetails = movieDetails
+                completion(true)
+            }
+            catch let error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+        }
+        dataTask.resume()
+    }
+    
 }
