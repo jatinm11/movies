@@ -18,6 +18,7 @@
 		7C8C67F5225FD73A000116B3 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67F4225FD73A000116B3 /* Networking.swift */; };
 		7C8C67F8225FD786000116B3 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67F7225FD786000116B3 /* Response.swift */; };
 		7C8C67FA225FD7DF000116B3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67F9225FD7DF000116B3 /* TestViewController.swift */; };
+		7C8C67FC225FDC22000116B3 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67FB225FDC22000116B3 /* ConnectionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		7C8C67F4225FD73A000116B3 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		7C8C67F7225FD786000116B3 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		7C8C67F9225FD7DF000116B3 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		7C8C67FB225FDC22000116B3 /* ConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				7C8C67F1225FD68F000116B3 /* MovieController.swift */,
+				7C8C67FB225FDC22000116B3 /* ConnectionController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C8C67F0225FD61F000116B3 /* MovieCategory.swift in Sources */,
+				7C8C67FC225FDC22000116B3 /* ConnectionController.swift in Sources */,
 				7C8C67F2225FD68F000116B3 /* MovieController.swift in Sources */,
 				7C8C67FA225FD7DF000116B3 /* TestViewController.swift in Sources */,
 				7C8C67EB225FD586000116B3 /* Movie.swift in Sources */,

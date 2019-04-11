@@ -12,14 +12,14 @@ class TestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        MovieController.shared.searchMovieWith(query: "Shawshank Redemption") { (success) in
-            if success {
-                guard let searchedMovies = MovieController.shared.searchedMovies else { return }
-                for i in searchedMovies {
-                    print(i)
-                }
-            }
+        
+        checkNetworkConnection()
+    }
+    
+    func checkNetworkConnection() {
+        if !ConnectionController.shared.isReachable(reachability: ConnectionController.reachable!) {
+            // TODO:- Add alert
+            print("No Internet")
         }
     }
 }
