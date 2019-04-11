@@ -14,6 +14,10 @@
 		7C8C67EB225FD586000116B3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67EA225FD586000116B3 /* Movie.swift */; };
 		7C8C67EE225FD5CE000116B3 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67ED225FD5CE000116B3 /* MovieDetails.swift */; };
 		7C8C67F0225FD61F000116B3 /* MovieCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67EF225FD61F000116B3 /* MovieCategory.swift */; };
+		7C8C67F2225FD68F000116B3 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67F1225FD68F000116B3 /* MovieController.swift */; };
+		7C8C67F5225FD73A000116B3 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67F4225FD73A000116B3 /* Networking.swift */; };
+		7C8C67F8225FD786000116B3 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67F7225FD786000116B3 /* Response.swift */; };
+		7C8C67FA225FD7DF000116B3 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67F9225FD7DF000116B3 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		7C8C67EA225FD586000116B3 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		7C8C67ED225FD5CE000116B3 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		7C8C67EF225FD61F000116B3 /* MovieCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategory.swift; sourceTree = "<group>"; };
+		7C8C67F1225FD68F000116B3 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
+		7C8C67F4225FD73A000116B3 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		7C8C67F7225FD786000116B3 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		7C8C67F9225FD7DF000116B3 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +67,10 @@
 			isa = PBXGroup;
 			children = (
 				7C8C67DB225FD2F9000116B3 /* Main.storyboard */,
+				7C8C67F9225FD7DF000116B3 /* TestViewController.swift */,
 				7C8C67EC225FD58A000116B3 /* Model */,
+				7C8C67F3225FD69B000116B3 /* Controller */,
+				7C8C67F6225FD760000116B3 /* Helpers */,
 				7C8C67E9225FD50A000116B3 /* Resources */,
 			);
 			path = movies;
@@ -82,8 +93,25 @@
 				7C8C67EA225FD586000116B3 /* Movie.swift */,
 				7C8C67ED225FD5CE000116B3 /* MovieDetails.swift */,
 				7C8C67EF225FD61F000116B3 /* MovieCategory.swift */,
+				7C8C67F7225FD786000116B3 /* Response.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7C8C67F3225FD69B000116B3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7C8C67F1225FD68F000116B3 /* MovieController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7C8C67F6225FD760000116B3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7C8C67F4225FD73A000116B3 /* Networking.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,9 +186,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C8C67F0225FD61F000116B3 /* MovieCategory.swift in Sources */,
+				7C8C67F2225FD68F000116B3 /* MovieController.swift in Sources */,
+				7C8C67FA225FD7DF000116B3 /* TestViewController.swift in Sources */,
 				7C8C67EB225FD586000116B3 /* Movie.swift in Sources */,
+				7C8C67F5225FD73A000116B3 /* Networking.swift in Sources */,
 				7C8C67D8225FD2F9000116B3 /* AppDelegate.swift in Sources */,
 				7C8C67EE225FD5CE000116B3 /* MovieDetails.swift in Sources */,
+				7C8C67F8225FD786000116B3 /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
