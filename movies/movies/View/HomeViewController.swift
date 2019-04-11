@@ -29,16 +29,16 @@ class HomeViewController: UIViewController {
                 }
             }
         }
-        //
-        //        MovieController.shared.fetchMoviesFor(type: .upcoming) { (success) in
-        //            if success {
-        //                DispatchQueue.main.async {
-        //                    guard let upcomingCategory = MovieController.shared.upcomingCategory else { return }
-        //                    self.movieCategories.append(upcomingCategory)
-        //                    self.collectionView.reloadData()
-        //                }
-        //            }
-        //        }
+        
+        MovieController.shared.fetchMoviesFor(type: .upcoming) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    guard let upcomingCategory =        MovieController.shared.upcomingCategory else { return }
+                        self.movieCategories.append(upcomingCategory)
+                        self.collectionView.reloadData()
+                }
+            }
+        }
     }
 }
 

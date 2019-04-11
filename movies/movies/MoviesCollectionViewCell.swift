@@ -22,6 +22,7 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     func updateViews() {
         if let movie = movie {
             self.movieNameLabel.text = movie.title
+            self.posterImageView.downloadImage(imageType: .poster, path: movie.posterPath!)
         }
     }
 }

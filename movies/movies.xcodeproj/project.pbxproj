@@ -22,6 +22,7 @@
 		7C8C6800225FDED1000116B3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C67FF225FDED1000116B3 /* SearchViewController.swift */; };
 		7C8C6803225FEC2F000116B3 /* MovieCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C6802225FEC2F000116B3 /* MovieCategoryCollectionViewCell.swift */; };
 		7C8C6805225FECF9000116B3 /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C6804225FECF9000116B3 /* MoviesCollectionViewCell.swift */; };
+		7C8C6807225FEE9A000116B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C6806225FEE9A000116B3 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		7C8C67FF225FDED1000116B3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7C8C6802225FEC2F000116B3 /* MovieCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C8C6804225FECF9000116B3 /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C8C6806225FEE9A000116B3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				7C8C67F4225FD73A000116B3 /* Networking.swift */,
+				7C8C6806225FEE9A000116B3 /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				7C8C67EB225FD586000116B3 /* Movie.swift in Sources */,
 				7C8C67F5225FD73A000116B3 /* Networking.swift in Sources */,
 				7C8C67FE225FDEAD000116B3 /* HomeViewController.swift in Sources */,
+				7C8C6807225FEE9A000116B3 /* Extensions.swift in Sources */,
 				7C8C67D8225FD2F9000116B3 /* AppDelegate.swift in Sources */,
 				7C8C6803225FEC2F000116B3 /* MovieCategoryCollectionViewCell.swift in Sources */,
 				7C8C67EE225FD5CE000116B3 /* MovieDetails.swift in Sources */,
