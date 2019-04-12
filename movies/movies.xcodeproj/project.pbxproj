@@ -24,6 +24,7 @@
 		7C8C6805225FECF9000116B3 /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C6804225FECF9000116B3 /* MoviesCollectionViewCell.swift */; };
 		7C8C6807225FEE9A000116B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C6806225FEE9A000116B3 /* Extensions.swift */; };
 		7C8C6809225FF45D000116B3 /* UpcomingMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C6808225FF45D000116B3 /* UpcomingMoviesCollectionViewCell.swift */; };
+		7CAC7178226142A300B7E77A /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC7177226142A300B7E77A /* SegueFromLeft.swift */; };
 		7CDB0EC42260DAC4008D9963 /* SearchedMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDB0EC32260DAC4008D9963 /* SearchedMoviesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		7C8C6804225FECF9000116B3 /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C8C6806225FEE9A000116B3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7C8C6808225FF45D000116B3 /* UpcomingMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		7CAC7177226142A300B7E77A /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		7CDB0EC32260DAC4008D9963 /* SearchedMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 			children = (
 				7C8C67F4225FD73A000116B3 /* Networking.swift */,
 				7C8C6806225FEE9A000116B3 /* Extensions.swift */,
+				7CAC7177226142A300B7E77A /* SegueFromLeft.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				7C8C67FC225FDC22000116B3 /* ConnectionController.swift in Sources */,
 				7C8C6805225FECF9000116B3 /* MoviesCollectionViewCell.swift in Sources */,
 				7C8C67F2225FD68F000116B3 /* MovieController.swift in Sources */,
+				7CAC7178226142A300B7E77A /* SegueFromLeft.swift in Sources */,
 				7C8C67EB225FD586000116B3 /* Movie.swift in Sources */,
 				7C8C67F5225FD73A000116B3 /* Networking.swift in Sources */,
 				7C8C67FE225FDEAD000116B3 /* HomeViewController.swift in Sources */,
