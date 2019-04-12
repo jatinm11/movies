@@ -154,6 +154,7 @@ class MovieController {
                 return
             }
         }
+        
         dataTask.resume()
     }
     

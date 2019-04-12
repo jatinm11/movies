@@ -73,22 +73,31 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text == nil || searchBar.text == ""{
-            isSearching = false
-            view.endEditing(true)
-            self.collectionView.reloadData()
-            self.placeholderLabel.text = "Movies (Now Playing)"
+            DispatchQueue.main.async {
+                UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
+                    self.isSearching = false
+                    self.view.endEditing(true)
+                    self.collectionView.reloadData()
+                    self.placeholderLabel.text = "Movies (Now Playing)"
+                }, completion: nil)
+            }
         }
-        
         else {
             isSearching = true
+            self.placeholderLabel.text = "Searching..."
             MovieController.shared.searchMovieWith(query: searchBar.text!) { (success) in
                 if success {
                     DispatchQueue.main.async {
-                        UIView.animate(withDuration: 0.2, animations: {
+                        UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
+                            switch MovieController.shared.searchedMovies?.count {
+                            case 0:
+                                self.placeholderLabel.text = "No Movie(s) Found"
+                            default:
+                                self.placeholderLabel.text = "Search Results..."
+                            }
                             self.collectionView.reloadData()
-                            self.placeholderLabel.text = "Search Results..."
                             searchBar.resignFirstResponder()
-                        })
+                        }, completion: nil)
                     }
                 }
             }
