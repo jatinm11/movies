@@ -340,6 +340,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="collectionView" destination="ZlE-vB-Thw" id="zIX-YG-p53"/>
+                        <outlet property="placeholderLabel" destination="lue-gP-yFq" id="asR-eO-lHd"/>
                         <outlet property="searchBar" destination="kNH-Qm-frw" id="O5l-Kh-5YT"/>
                     </connections>
                 </viewController>

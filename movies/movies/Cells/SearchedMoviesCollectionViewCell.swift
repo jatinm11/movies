@@ -31,7 +31,12 @@ class SearchedMoviesCollectionViewCell: UICollectionViewCell {
         if let movie = movie {
             DispatchQueue.main.async {
                 self.movieNameLabel.text = movie.title
-                self.posterImageView.downloadImage(imageType: .backdrop, path: movie.posterPath!)
+                if let posterPath = movie.posterPath {
+                    self.posterImageView.downloadImage(imageType: .poster, path: posterPath)
+                }
+                else {
+                    self.posterImageView.image = UIImage()
+                }
                 self.movieLengthLabel.text = "\(movie.voteAverage)"
             }
         }
