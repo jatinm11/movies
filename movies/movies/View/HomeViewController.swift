@@ -33,9 +33,9 @@ class HomeViewController: UIViewController {
         MovieController.shared.fetchMoviesFor(type: .upcoming) { (success) in
             if success {
                 DispatchQueue.main.async {
-                    guard let upcomingCategory =        MovieController.shared.upcomingCategory else { return }
-                        self.movieCategories.append(upcomingCategory)
-                        self.collectionView.reloadData()
+                    guard let upcomingCategory = MovieController.shared.upcomingCategory else { return }
+                    self.movieCategories.append(upcomingCategory)
+                    self.collectionView.reloadData()
                 }
             }
         }
@@ -52,11 +52,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? MovieCategoryCollectionViewCell else { return UICollectionViewCell() }
+        if indexPath.item == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "nowPlayingCell", for: indexPath) as? NowPlayingMoviesCollectionViewCell else { return UICollectionViewCell() }
+            
+            let category = movieCategories[indexPath.item]
+            cell.category = category
+            return cell
+        }
         
-        let category = movieCategories[indexPath.item]
-        cell.category = category
-        return cell
+        if indexPath.item == 1 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upcomingCell", for: indexPath) as? UpcomingMoviesCollectionViewCell else { return UICollectionViewCell() }
+            let category = movieCategories[indexPath.item]
+            cell.category = category
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

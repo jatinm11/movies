@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieCategoryCollectionViewCell: UICollectionViewCell {
+class NowPlayingMoviesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -34,7 +34,7 @@ class MovieCategoryCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension MovieCategoryCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension NowPlayingMoviesCollectionViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let category = self.category, let movies = category.movies else { return 0 }
@@ -48,6 +48,7 @@ extension MovieCategoryCollectionViewCell: UICollectionViewDelegate, UICollectio
         let movie = movies[indexPath.item]
         cell.movie = movie
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
