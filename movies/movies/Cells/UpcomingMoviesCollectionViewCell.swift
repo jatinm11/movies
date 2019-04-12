@@ -18,8 +18,10 @@ class UpcomingMoviesCollectionViewCell: NowPlayingMoviesCollectionViewCell {
     
     override func updateViews() {
         if let category = category {
-            self.categoryNameLabel.text = category.categoryName
-            self.collectionView.reloadData()
+            DispatchQueue.main.async {
+                self.categoryNameLabel.text = category.categoryName
+                self.collectionView.reloadData()
+            }
         }
     }
 }

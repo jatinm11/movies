@@ -28,10 +28,11 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     
     func updateViews() {
         if let movie = movie {
-            self.movieNameLabel.text = movie.title
-            self.posterImageView.downloadImage(imageType: .backdrop, path: movie.posterPath!)
-            self.ratingLabel.text = "\(movie.voteAverage)"
+            DispatchQueue.main.async {
+                self.movieNameLabel.text = movie.title
+                self.posterImageView.downloadImage(imageType: .backdrop, path: movie.posterPath!)
+                self.ratingLabel.text = "\(movie.voteAverage)"
+            }
         }
     }
-
 }

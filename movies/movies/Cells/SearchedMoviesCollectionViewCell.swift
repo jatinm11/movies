@@ -14,6 +14,13 @@ class SearchedMoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var movieLengthLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        self.posterImageView.layer.cornerRadius = 10.0
+        self.posterImageView.clipsToBounds = true
+    }
+    
     var movie: Movie? {
         didSet {
             updateViews()
@@ -22,9 +29,11 @@ class SearchedMoviesCollectionViewCell: UICollectionViewCell {
     
     func updateViews() {
         if let movie = movie {
-            self.movieNameLabel.text = movie.title
-            self.posterImageView.downloadImage(imageType: .backdrop, path: movie.posterPath!)
-            self.movieLengthLabel.text = "\(movie.length ?? "0")"
+            DispatchQueue.main.async {
+                self.movieNameLabel.text = movie.title
+                self.posterImageView.downloadImage(imageType: .backdrop, path: movie.posterPath!)
+                self.movieLengthLabel.text = "\(movie.voteAverage)"
+            }
         }
     }
 }

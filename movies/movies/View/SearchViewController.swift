@@ -18,11 +18,12 @@ class SearchViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+    
     }
     
 }
 
-extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -41,6 +42,15 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let movie = movies[indexPath.item]
         cell.movie = movie
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 0
+        
+        return CGSize(width: (collectionView.frame.width / 2) - 7, height: collectionView.frame.height / 2)
         
     }
 }
