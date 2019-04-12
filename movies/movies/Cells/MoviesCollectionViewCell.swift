@@ -12,6 +12,13 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var movieNameLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.posterImageView.layer.cornerRadius = 10.0
+        self.posterImageView.clipsToBounds = true
+    }
     
     var movie: Movie? {
         didSet {
@@ -22,7 +29,9 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     func updateViews() {
         if let movie = movie {
             self.movieNameLabel.text = movie.title
-            self.posterImageView.downloadImage(imageType: .poster, path: movie.posterPath!)
+            self.posterImageView.downloadImage(imageType: .backdrop, path: movie.posterPath!)
+            self.ratingLabel.text = "\(movie.voteAverage)"
         }
     }
+
 }

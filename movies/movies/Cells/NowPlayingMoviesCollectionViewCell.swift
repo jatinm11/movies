@@ -13,11 +13,26 @@ class NowPlayingMoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var cellScaling = 0.6
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
+//        let collectionViewSize = collectionView.frame.size
+//        let cellWidth = floor(Double(collectionViewSize.width) * cellScaling)
+//        let cellHeight = floor(Double(collectionViewSize.height) * cellScaling)
+//
+//        let insetX = (Double(collectionView.bounds.width) - cellWidth) / 2.0
+//        let insetY = (Double(collectionView.bounds.height) - cellHeight) / 2.0
+//
+//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//
+//        layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
+//        collectionView.contentInset = UIEdgeInsets(top: CGFloat(insetY), left: CGFloat(insetX), bottom: CGFloat(insetY), right: CGFloat(insetX))
+        
     }
     
     var category: MovieCategory? {
@@ -52,7 +67,7 @@ extension NowPlayingMoviesCollectionViewCell: UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 110, height: 147)
+        return CGSize(width: (collectionView.frame.width / 2) + 40, height: collectionView.frame.height)
     }
 }
 

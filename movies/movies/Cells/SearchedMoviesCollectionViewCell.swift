@@ -23,7 +23,7 @@ class SearchedMoviesCollectionViewCell: UICollectionViewCell {
     func updateViews() {
         if let movie = movie {
             self.movieNameLabel.text = movie.title
-            self.posterImageView.downloadImage(imageType: .poster, path: movie.posterPath!)
+            self.posterImageView.downloadImage(imageType: .backdrop, path: movie.posterPath!)
             self.movieLengthLabel.text = "\(movie.length ?? "0")"
         }
     }

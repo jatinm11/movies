@@ -30,7 +30,7 @@ class MovieController {
             URLQueryItem(name: "api_key", value: apiKey),
             URLQueryItem(name: "language", value: "en-US"),
             URLQueryItem(name: "page", value: "1"),
-            URLQueryItem(name: "region", value: "IN")
+            URLQueryItem(name: "region", value: "US")
         ]
         
         guard let url = urlComponents?.url else {
