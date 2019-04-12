@@ -319,7 +319,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies (Now Playing)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lue-gP-yFq">
-                                <rect key="frame" x="16" y="116" width="343" height="45"/>
+                                <rect key="frame" x="16" y="116" width="315" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ANx-aP-0JR"/>
                                 </constraints>
@@ -340,6 +340,17 @@
                                     <action selector="cancelButtonTapped:" destination="tYw-1u-wPi" eventType="touchUpInside" id="oOJ-PV-g8P"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6N-Sa-m1L">
+                                <rect key="frame" x="339" y="128.66666666666666" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="J5E-gW-FGs"/>
+                                    <constraint firstAttribute="width" constant="20" id="UyX-N8-gqu"/>
+                                </constraints>
+                                <state key="normal" image="sort"/>
+                                <connections>
+                                    <action selector="sortButtonTapped:" destination="tYw-1u-wPi" eventType="touchUpInside" id="4Dj-ga-VI8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -348,13 +359,15 @@
                             <constraint firstItem="kNH-Qm-frw" firstAttribute="centerY" secondItem="mab-9B-iem" secondAttribute="centerY" id="8Du-fr-H96"/>
                             <constraint firstItem="kNH-Qm-frw" firstAttribute="top" secondItem="oad-Xc-feB" secondAttribute="top" constant="16" id="BnD-3w-WCF"/>
                             <constraint firstItem="mab-9B-iem" firstAttribute="leading" secondItem="kNH-Qm-frw" secondAttribute="trailing" id="CGy-Tm-h8S"/>
+                            <constraint firstItem="oad-Xc-feB" firstAttribute="trailing" secondItem="t6N-Sa-m1L" secondAttribute="trailing" constant="16" id="Hfa-Ys-pir"/>
+                            <constraint firstItem="t6N-Sa-m1L" firstAttribute="centerY" secondItem="lue-gP-yFq" secondAttribute="centerY" id="VCp-eh-MAB"/>
                             <constraint firstItem="kNH-Qm-frw" firstAttribute="leading" secondItem="oad-Xc-feB" secondAttribute="leading" constant="8" id="XKG-6R-Xif"/>
                             <constraint firstItem="ZlE-vB-Thw" firstAttribute="bottom" secondItem="oad-Xc-feB" secondAttribute="bottom" id="aAL-cd-ftZ"/>
                             <constraint firstItem="oad-Xc-feB" firstAttribute="trailing" secondItem="mab-9B-iem" secondAttribute="trailing" constant="16" id="lah-n1-ptn"/>
                             <constraint firstItem="oad-Xc-feB" firstAttribute="trailing" secondItem="ZlE-vB-Thw" secondAttribute="trailing" constant="16" id="oIc-hX-BKS"/>
                             <constraint firstItem="ZlE-vB-Thw" firstAttribute="leading" secondItem="oad-Xc-feB" secondAttribute="leading" constant="16" id="p4i-sj-9Rg"/>
                             <constraint firstItem="lue-gP-yFq" firstAttribute="top" secondItem="kNH-Qm-frw" secondAttribute="bottom" id="tAc-8O-QBp"/>
-                            <constraint firstItem="oad-Xc-feB" firstAttribute="trailing" secondItem="lue-gP-yFq" secondAttribute="trailing" constant="16" id="w5e-Z3-zA7"/>
+                            <constraint firstItem="t6N-Sa-m1L" firstAttribute="leading" secondItem="lue-gP-yFq" secondAttribute="trailing" constant="8" id="zG2-Rd-llg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oad-Xc-feB"/>
                     </view>
@@ -378,6 +391,7 @@
         <image name="search" width="102.40000152587891" height="102.40000152587891"/>
         <image name="searchSelected" width="18" height="18"/>
         <image name="searchUnselected" width="18" height="18"/>
+        <image name="sort" width="51.200000762939453" height="51.200000762939453"/>
         <image name="star" width="354.4615478515625" height="354.4615478515625"/>
     </resources>
 </document>

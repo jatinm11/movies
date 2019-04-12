@@ -25,12 +25,46 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self
     }
     
+    
+    @IBAction func sortButtonTapped(_ sender: Any) {
+        
+        let optionMenu = UIAlertController(title: "Sort By", message: "", preferredStyle: .actionSheet)
+        
+        let sortByRatingOption = UIAlertAction(title: "Rating", style: .default) { (_) in
+            if self.isSearching {
+                MovieController.shared.searchedMovies!.sort(by: { (movieOne, movieTwo) -> Bool in
+                    return movieOne.voteAverage > movieTwo.voteAverage
+                })
+                UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
+                    self.collectionView.reloadData()
+                }, completion: nil)
+            }
+        }
+        let sortByPopularityOption = UIAlertAction(title: "Popularity", style: .default) { (_) in
+            if self.isSearching {
+                MovieController.shared.searchedMovies!.sort(by: { (movieOne, movieTwo) -> Bool in
+                    return movieOne.popularity > movieTwo.popularity
+                })
+                UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
+                    self.collectionView.reloadData()
+                }, completion: nil)
+            }
+        }
+        
+        let cancelOption = UIAlertAction(title: "Cancel", style: .default) { (_) in
+            optionMenu.dismiss(animated: true, completion: nil)
+        }
+        
+        optionMenu.addAction(sortByRatingOption)
+        optionMenu.addAction(sortByPopularityOption)
+        optionMenu.addAction(cancelOption)
+        
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        DispatchQueue.main.async {
-            self.searchBar.becomeFirstResponder()
-        }
+        self.searchBar.becomeFirstResponder()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -38,6 +72,7 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.searchBar.resignFirstResponder()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -82,8 +117,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         layout.minimumInteritemSpacing = 0
         
         return CGSize(width: (collectionView.frame.width / 2) - 7, height: collectionView.frame.height / 2)
-        
     }
+    
 }
 
 extension SearchViewController: UISearchBarDelegate {
