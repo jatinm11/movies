@@ -14,6 +14,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var placeholderLabel: UILabel!
     
+    var selectedMovie: Movie?
+    
     var isSearching: Bool = false
 
     override func viewDidLoad() {
@@ -67,6 +69,13 @@ class SearchViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC" {
+            if let destination = segue.destination as? MovieDetailsViewController {
+                destination.movie = self.selectedMovie
+            }
+        }
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -110,6 +119,21 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return CGSize(width: (collectionView.frame.width / 2) - 7, height: collectionView.frame.height / 2)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if isSearching {
+            guard let searchedMovies = MovieController.shared.searchedMovies else { return }
+            let searchedMovie = searchedMovies[indexPath.item]
+            self.selectedMovie = searchedMovie
+        }
+        else {
+            guard let nowPlayingCategory = MovieController.shared.nowPlayingCategory, let movies = nowPlayingCategory.movies else { return }
+            let movie = movies[indexPath.item]
+            self.selectedMovie = movie
+        }
+        
+        self.performSegue(withIdentifier: "toDetailVC", sender: self)
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate {

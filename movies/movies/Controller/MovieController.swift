@@ -14,8 +14,6 @@ class MovieController {
     
     var upcomingCategory: MovieCategory?
     var nowPlayingCategory: MovieCategory?
-    var topRatedCategory: MovieCategory?
-    var popularCategory: MovieCategory?
     var movieDetails: MovieDetails?
     
     var searchedMovies: [Movie]? = []
@@ -71,15 +69,6 @@ class MovieController {
                         let nowPlayingCategory = MovieCategory(categoryName: "Now Playing", movies: results)
                         self.nowPlayingCategory = nowPlayingCategory
                     }
-                    else if type == MovieType.toprated {
-                        let topRatedCategory = MovieCategory(categoryName: "Top Rated", movies: results)
-                        self.topRatedCategory = topRatedCategory
-                    }
-                    else if type == MovieType.popular {
-                        let popularCategory = MovieCategory(categoryName: "Popular", movies: results)
-                        self.popularCategory = popularCategory
-                    }
-                    
                     completion(true)
                 }
             }
@@ -95,7 +84,7 @@ class MovieController {
     
     func fetchMovieDetails(movieId: Int, completion: @escaping(_ success: Bool) -> Void) {
         
-        let base = "\(baseURL)movie/\(movieId)?api_key=\(apiKey)&language=en-US&append_to_response=credits,release_dates"
+        let base = "\(baseURL)movie/\(movieId)?api_key=\(apiKey)&language=en-US"
         
         guard let url = URL(string: base) else { completion(false); return }
         

@@ -13,8 +13,6 @@ enum MovieType: String {
     case upcoming
     case nowPlaying
     case genres
-    case toprated
-    case popular
     
     var rawValue: String {
         switch self {
@@ -24,10 +22,6 @@ enum MovieType: String {
             return "movie/now_playing"
         case .genres:
             return "genre/movie/list"
-        case .toprated:
-            return "movie/top_rated"
-        case .popular:
-            return "movie/popular"
         }
     }
 }
