@@ -29,6 +29,7 @@
 		7C8C6809225FF45D000116B3 /* UpcomingCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8C6808225FF45D000116B3 /* UpcomingCategoryCell.swift */; };
 		7CAC7178226142A300B7E77A /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC7177226142A300B7E77A /* SegueFromLeft.swift */; };
 		7CDB0EC42260DAC4008D9963 /* SearchedMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDB0EC32260DAC4008D9963 /* SearchedMoviesCollectionViewCell.swift */; };
+		7CF316082262825300BEF7CE /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF316072262825300BEF7CE /* MovieDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		7C8C6808225FF45D000116B3 /* UpcomingCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCategoryCell.swift; sourceTree = "<group>"; };
 		7CAC7177226142A300B7E77A /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		7CDB0EC32260DAC4008D9963 /* SearchedMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		7CF316072262825300BEF7CE /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			children = (
 				7C8C67FD225FDEAD000116B3 /* HomeViewController.swift */,
 				7C8C67FF225FDED1000116B3 /* SearchViewController.swift */,
+				7CF316072262825300BEF7CE /* MovieDetailsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CF316082262825300BEF7CE /* MovieDetailsViewController.swift in Sources */,
 				7C8C6800225FDED1000116B3 /* SearchViewController.swift in Sources */,
 				7C8AE2BB22624E3A00A7D524 /* PopularCategoryCell.swift in Sources */,
 				7C8C6809225FF45D000116B3 /* UpcomingCategoryCell.swift in Sources */,
