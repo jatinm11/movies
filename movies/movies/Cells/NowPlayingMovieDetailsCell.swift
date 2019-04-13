@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviesCollectionViewCell: UICollectionViewCell {
+class NowPlayingMovieDetailsCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var movieNameLabel: UILabel!
