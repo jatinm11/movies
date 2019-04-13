@@ -28,38 +28,29 @@ class SearchViewController: UIViewController {
     
     @IBAction func sortButtonTapped(_ sender: Any) {
         
-        let optionMenu = UIAlertController(title: "Sort By", message: "", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: "Sort By", message: "Select sort type", preferredStyle: .actionSheet)
         
-        let sortByRatingOption = UIAlertAction(title: "Rating", style: .default) { (_) in
-            if self.isSearching {
-                MovieController.shared.searchedMovies!.sort(by: { (movieOne, movieTwo) -> Bool in
-                    return movieOne.voteAverage > movieTwo.voteAverage
-                })
-                UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
-                    self.collectionView.reloadData()
-                }, completion: nil)
-            }
-        }
         let sortByPopularityOption = UIAlertAction(title: "Popularity", style: .default) { (_) in
             if self.isSearching {
-                MovieController.shared.searchedMovies!.sort(by: { (movieOne, movieTwo) -> Bool in
-                    return movieOne.popularity > movieTwo.popularity
-                })
-                UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
-                    self.collectionView.reloadData()
-                }, completion: nil)
+                self.sortSearchedMovies(by: .popularity)
+            }
+        }
+
+        let sortByRatingOption = UIAlertAction(title: "Rating", style: .default) { (_) in
+            if self.isSearching {
+                self.sortSearchedMovies(by: .rating)
             }
         }
         
-        let cancelOption = UIAlertAction(title: "Cancel", style: .default) { (_) in
+        let cancelOption = UIAlertAction(title: "Cancel", style: .destructive) { (_) in
             optionMenu.dismiss(animated: true, completion: nil)
         }
         
-        optionMenu.addAction(sortByRatingOption)
-        optionMenu.addAction(sortByPopularityOption)
-        optionMenu.addAction(cancelOption)
+        let sortActions: [UIAlertAction] = [sortByRatingOption, sortByPopularityOption, cancelOption]
+        sortActions.forEach({ optionMenu.addAction($0) })
         
         self.present(optionMenu, animated: true, completion: nil)
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -155,4 +146,27 @@ extension SearchViewController: UISearchBarDelegate {
             }
         }
     }
+}
+
+extension SearchViewController {
+    
+    func sortSearchedMovies(by type: SortType) {
+        if type == .popularity {
+            MovieController.shared.searchedMovies!.sort(by: { $0.popularity > $1.popularity })
+            UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
+                self.collectionView.reloadData()
+            }, completion: nil)
+        }
+        if type == .rating {
+            MovieController.shared.searchedMovies!.sort(by: { $0.voteAverage > $1.voteAverage })
+            UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
+                self.collectionView.reloadData()
+            }, completion: nil)
+        }
+    }
+}
+
+enum SortType {
+    case popularity
+    case rating
 }
