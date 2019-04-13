@@ -112,7 +112,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 0
         
-        if indexPath.item == 0 || indexPath.item == 2 || indexPath.item == 3{
+        if indexPath.item == 0 || indexPath.item == 2 || indexPath.item == 3 {
             return CGSize(width: collectionView.frame.width, height: (collectionView.frame.height / 2) + 140)
         }
         
