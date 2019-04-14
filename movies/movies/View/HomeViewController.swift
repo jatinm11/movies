@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var placeholderLabel: UILabel!
     
     var movieCategories: [MovieCategory] = []
     
@@ -19,6 +20,8 @@ class HomeViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        checkNetwork()
         
         MovieController.shared.fetchMoviesFor(type: .nowPlaying) { (success) in
             if success {
@@ -89,3 +92,23 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 }
 
+extension HomeViewController {
+    
+    func checkNetwork() {
+        if !ConnectionController.shared.isReachable(reachability: ConnectionController.reachable!) {
+            self.showAlert(title: "Oops!", msg: "Seems like you are not connected to the internet!")
+            self.placeholderLabel.text = "No network!"
+        }
+    }
+}
+
+extension HomeViewController {
+    func showAlert(title: String, msg: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+}

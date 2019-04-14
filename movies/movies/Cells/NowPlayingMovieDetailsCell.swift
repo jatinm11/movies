@@ -31,7 +31,12 @@ class NowPlayingMovieDetailsCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 self.movieNameLabel.text = movie.title
                 self.posterImageView.downloadImage(imageType: .backdrop, path: movie.posterPath!)
-                self.ratingLabel.text = "\(movie.voteAverage)"
+                if movie.voteAverage == 0 {
+                    self.ratingLabel.text = "TBD"
+                }
+                else {
+                    self.ratingLabel.text = "\(movie.voteAverage)"
+                }
             }
         }
     }
