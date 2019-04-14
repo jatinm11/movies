@@ -23,6 +23,7 @@ class SearchViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        isSearching = false
     
         searchBar.delegate = self
     }
@@ -33,15 +34,12 @@ class SearchViewController: UIViewController {
         let optionMenu = UIAlertController(title: "Sort By", message: "Select sort type", preferredStyle: .actionSheet)
         
         let sortByPopularityOption = UIAlertAction(title: "Popularity", style: .default) { (_) in
-            if self.isSearching {
-                self.sortSearchedMovies(by: .popularity)
-            }
+            self.sortSearchedMovies(by: .popularity)
+            
         }
 
         let sortByRatingOption = UIAlertAction(title: "Rating", style: .default) { (_) in
-            if self.isSearching {
-                self.sortSearchedMovies(by: .rating)
-            }
+            self.sortSearchedMovies(by: .rating)
         }
         
         let cancelOption = UIAlertAction(title: "Cancel", style: .destructive) { (_) in
@@ -176,16 +174,32 @@ extension SearchViewController {
     
     func sortSearchedMovies(by type: SortType) {
         if type == .popularity {
-            MovieController.shared.searchedMovies!.sort(by: { $0.popularity > $1.popularity })
-            UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
-                self.collectionView.reloadData()
-            }, completion: nil)
+            if isSearching {
+                MovieController.shared.searchedMovies!.sort(by: { $0.popularity > $1.popularity })
+                UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
+                    self.collectionView.reloadData()
+                }, completion: nil)
+            }
+            else {
+                MovieController.shared.nowPlayingCategory?.movies!.sort(by: { $0.popularity > $1.popularity })
+                UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
+                    self.collectionView.reloadData()
+                }, completion: nil)
+            }
         }
         if type == .rating {
-            MovieController.shared.searchedMovies!.sort(by: { $0.voteAverage > $1.voteAverage })
-            UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
-                self.collectionView.reloadData()
-            }, completion: nil)
+            if isSearching {
+                MovieController.shared.searchedMovies!.sort(by: { $0.voteAverage > $1.voteAverage })
+                UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
+                    self.collectionView.reloadData()
+                }, completion: nil)
+            }
+            else {
+                MovieController.shared.nowPlayingCategory?.movies!.sort(by: { $0.voteAverage > $1.voteAverage })
+                UIView.transition(with: self.collectionView, duration: 0.35, options: .transitionCrossDissolve, animations: {
+                    self.collectionView.reloadData()
+                }, completion: nil)
+            }
         }
     }
 }

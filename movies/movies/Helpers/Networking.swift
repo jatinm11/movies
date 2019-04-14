@@ -12,7 +12,6 @@ enum MovieType: String {
     
     case upcoming
     case nowPlaying
-    case genres
     
     var rawValue: String {
         switch self {
@@ -20,8 +19,6 @@ enum MovieType: String {
             return "movie/upcoming"
         case .nowPlaying:
             return "movie/now_playing"
-        case .genres:
-            return "genre/movie/list"
         }
     }
 }
@@ -48,14 +45,11 @@ enum APIError: Error {
 enum ImageType: String {
     case poster
     case backdrop
-    case castImage
     
     var rawValue: String {
         switch self {
         case .poster:
             return "http://image.tmdb.org/t/p/w185"
-        case .castImage:
-            return "http://image.tmdb.org/t/p/w45"
         case .backdrop:
             return "http://image.tmdb.org/t/p/w780"
         }
