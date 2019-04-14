@@ -62,8 +62,6 @@ extension NowPlayingCategoryCell: UICollectionViewDelegate, UICollectionViewData
         guard let category = self.category, let movies = category.movies else { return }
         let movie = movies[indexPath.item]
         
-        print(movie.title)
-        
         let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailVC") as! MovieDetailsViewController
         detailVC.movie = movie
         self.window?.rootViewController?.present(detailVC, animated: true, completion: nil)
