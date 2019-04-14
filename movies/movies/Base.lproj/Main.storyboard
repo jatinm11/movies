@@ -391,9 +391,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oad-Xc-feB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="searchUnselected" selectedImage="searchSelected" id="11X-f9-k5D">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
-                    </tabBarItem>
                     <connections>
                         <outlet property="collectionView" destination="ZlE-vB-Thw" id="zIX-YG-p53"/>
                         <outlet property="placeholderLabel" destination="lue-gP-yFq" id="asR-eO-lHd"/>
@@ -520,8 +517,6 @@
     </scenes>
     <resources>
         <image name="search" width="102.40000152587891" height="102.40000152587891"/>
-        <image name="searchSelected" width="18" height="18"/>
-        <image name="searchUnselected" width="18" height="18"/>
         <image name="sort" width="51.200000762939453" height="51.200000762939453"/>
         <image name="star" width="354.4615478515625" height="354.4615478515625"/>
     </resources>
