@@ -34,7 +34,7 @@ class UpcomingMovieDetailsCell: UICollectionViewCell {
                     self.posterImageView.downloadImage(imageType: .backdrop, path: posterPath)
                 }
                 else {
-                    self.posterImageView.image = UIImage()
+                    self.posterImageView.image = UIImage(named: "empty")
                 }
                 self.releaseDateLabel.text = "\(movie.releaseDate)"
             }

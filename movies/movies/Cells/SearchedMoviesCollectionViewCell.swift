@@ -35,7 +35,7 @@ class SearchedMoviesCollectionViewCell: UICollectionViewCell {
                     self.posterImageView.downloadImage(imageType: .poster, path: posterPath)
                 }
                 else {
-                    self.posterImageView.image = UIImage()
+                    self.posterImageView.image = UIImage(named: "empty")
                 }
                 self.movieLengthLabel.text = "\(movie.voteAverage)"
             }

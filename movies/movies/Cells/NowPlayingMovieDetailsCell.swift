@@ -30,7 +30,12 @@ class NowPlayingMovieDetailsCell: UICollectionViewCell {
         if let movie = movie {
             DispatchQueue.main.async {
                 self.movieNameLabel.text = movie.title
-                self.posterImageView.downloadImage(imageType: .backdrop, path: movie.posterPath!)
+                if let posterPath = movie.posterPath {
+                    self.posterImageView.downloadImage(imageType: .backdrop, path: posterPath)
+                }
+                else {
+                    self.posterImageView.image = UIImage(named: "empty")
+                }
                 if movie.voteAverage == 0 {
                     self.ratingLabel.text = "TBD"
                 }
